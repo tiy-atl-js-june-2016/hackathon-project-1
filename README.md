@@ -1,4 +1,4 @@
-## Hackathon - <Project Name>
+## Hackathon - Team Brit
 
 ## Authorization
 
