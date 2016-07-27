@@ -1,4 +1,12 @@
-## Hackathon - Team Brit
+## Hackathon - Ping Pong Bracket (Team Brit)
+
+> Create an account and pit yourself against the world's greatest ping pong aficionados.
+
+- Create & View Tournaments
+- Add Players
+- Seed Bracket Rounds
+- Track Losses
+- Leader Boards 
 
 > [https://hackathon-team-brit.herokuapp.com](https://hackathon-team-brit.herokuapp.com)
 
