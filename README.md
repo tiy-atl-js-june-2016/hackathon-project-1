@@ -109,6 +109,57 @@ Returns 200 on success and 401 on failure.
 }
 ```
 
+### Creating Players
+
+#### (!) POST /players
+
+> Create a new player.
+
+**Params:**
+
+* fullname: string
+* nickname: string (must be unique)
+* location: string (optional)
+
+**Status Codes:**
+Returns 201 Created on success, 422 Unprocessable Entity in case of failure.
+
+**Request:**
+
+```
+{
+  "fullname": "Terry Robinson",
+  "nickname": "The Champ",
+  "location": "Atlanta, GA"
+}
+```
+
+**Response:**
+
+```
+{
+  "id": 13,
+  "fullname": "Terry Robinson",
+  "nickname": "The Champ",
+  "location": "Atlanta, GA",
+  "created_at": "July 28, 2016 ...",
+  "updated_at": "July 28, 2016 ..."
+}
+```
+
+#### GET /players/:id
+
+> Retrieve a player by ID.
+
+**Params:**
+None
+
+**Status Codes:**
+Returns 200 OK on success, 404 Not Found on failure.
+
+**Response:**
+Same as above.
+
 ### Running Tournaments
 
 #### (!) POST /tournaments
@@ -147,6 +198,38 @@ Returns 201 Created on success, and 422 Unprocessable entity on failure.
   "deadline": null,
   "starting_at": null,
   "organizer": "KingCons"
+}
+```
+
+#### (!) POST /tournaments/:tournament_id/add-player
+
+> Add a player to a tournament.
+
+**Params:**
+
+* player_id:integer
+
+**Status Codes:**
+Returns 201 Created on success, 422 Unprocessable Entity on failure.
+
+**Request:**
+
+```
+{
+  "player_id": 13
+}
+```
+
+**Response:**
+
+```
+{
+  "id": 13,
+  "fullname": "Terry Robinson",
+  "nickname": "The Champ",
+  "location": "Atlanta, GA",
+  "created_at": "July 28, 2016 ...",
+  "updated_at": "July 28, 2016 ..."
 }
 ```
 
