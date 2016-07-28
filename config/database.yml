@@ -5,15 +5,15 @@ default: &default
 
 development:
   <<: *default
-  database: auth-server
+  database: hackathon-team-brit
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: auth-server-test
+  database: hackathon-team-brit-test
 
 production:
   <<: *default
-  database: auth-server-prod
+  database: hackathon-team-brit-prod
