@@ -4,5 +4,11 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#signup'
   post '/login',  to: 'users#login'
 
+  resources :tournaments, only: [:create, :index, :show] do
+    post "/add-player", to: "competitors#create"
+    post "/seed", to: "tournaments#seed"
+    get  "/standings", to: "tournaments#standings"
+    resources :matches, only: [:update]
+  end
 
 end
