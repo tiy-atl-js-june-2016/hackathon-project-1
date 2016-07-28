@@ -28,6 +28,11 @@ Any request that fails to be processed will return an *appropriate*
 status code as a response as well as a JSON object with an "errors"
 property providing any additional data to solve the problem.
 
+### Parameters
+
+**All** parameters are expected to be sent in JSON format.
+All parameters are **required** unless explicitly marked as `(optional)`.
+
 ### Routes
 
 ### User Accounts
@@ -37,6 +42,7 @@ property providing any additional data to solve the problem.
 > This route creates an account for a new user.
 
 **Params:**
+
 * first_name: string
 * last_name: string
 * username: string
@@ -110,10 +116,12 @@ Returns 200 on success and 401 on failure.
 > Create a new tournament.
 
 **Params:**
+
 * title: string
 * size: integer (one of 4,8,12,16,20,24,28,32)
 * location: string (optional)
 * deadline: datetime (optional)
+* starting_at: datetime (optional)
 
 **Status Codes:**
 Returns 201 Created on success, and 422 Unprocessable entity on failure.
@@ -136,7 +144,8 @@ Returns 201 Created on success, and 422 Unprocessable entity on failure.
   "title": "Table Tennis Terror",
   "size": 16,
   "location": "The Iron Yard",
-  "deadline": null
+  "deadline": null,
+  "starting_at": null,
   "organizer": "KingCons"
 }
 ```
