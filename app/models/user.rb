@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :tournaments
+  has_many :competitors
+  has_many :brackets, through: :competitors,
+           source: :tournament
 
   validates_presence_of :first_name, :last_name
   validates :username, presence: true, uniqueness: true
