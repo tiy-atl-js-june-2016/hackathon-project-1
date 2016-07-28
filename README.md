@@ -10,14 +10,19 @@
 
 > [https://hackathon-team-brit.herokuapp.com](https://hackathon-team-brit.herokuapp.com)
 
-## Authorization
+### Authorization
 
-All authorized requests unless otherwise mentioned require
-a "**Access-Token**" header to be present. Users are assigned an
-Auth Token during account creation. The access token can be
-retrieved at any time via the "/login" route.
+All requests that need authorization are noted in the README by
+a `(!)` before the route address.
 
-#### Errors
+Users are assigned a token during account creation and that must be
+sent in the headers as "**Access-Token**" to make authenticated requests.
+A user's access token may be retrieved at any time via the "/login" route.
+
+Attempt to access an authenticated route without supplying the access token
+will return a **401 Unauthenticated** status code.
+
+### Errors
 
 Any request that fails to be processed will return an *appropriate*
 status code as a response as well as a JSON object with an "errors"
@@ -25,19 +30,18 @@ property providing any additional data to solve the problem.
 
 ### Routes
 
+### User Accounts
+
 #### POST /signup
 
 > This route creates an account for a new user.
 
 **Params:**
-
-```
-  * first_name: string
-  * last_name: string
-  * username: string
-  * email: string
-  * password: string
-```
+* first_name: string
+* last_name: string
+* username: string
+* email: string
+* password: string
 
 **Status Code:**
 Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
@@ -71,19 +75,17 @@ Returns 201 Created on Success and 422 Unprocessable Entity in case of failure.
 
 #### POST /login
 
-> This route exists 'signs a user in' and gets their info.
+> This route signs a user in and returns their account info.
 
 **Params:**
 
-```
-username: string
-password: string
-```
+* username: string
+* password: string
 
 **Status Codes:**
 Returns 200 on success and 401 on failure.
 
-***Request:***
+**Request:**
 
 ```
 {
@@ -92,7 +94,7 @@ Returns 200 on success and 401 on failure.
 }
 ```
 
-***Response:***
+**Response:**
 
 ```
 {
@@ -100,3 +102,43 @@ Returns 200 on success and 401 on failure.
   "username": "KingCons"
 }
 ```
+
+### Running Tournaments
+
+#### (!) POST /tournaments
+
+> Create a new tournament.
+
+**Params:**
+* title: string
+* size: integer (one of 4,8,12,16,20,24,28,32)
+* location: string (optional)
+* deadline: datetime (optional)
+
+**Status Codes:**
+Returns 201 Created on success, and 422 Unprocessable entity on failure.
+
+**Request:**
+
+```
+{
+  "title": "Table Tennis Terror",
+  "size": 16,
+  "location": "The Iron Yard"
+}
+```
+
+**Response:**
+
+```
+{
+  "id": 42,
+  "title": "Table Tennis Terror",
+  "size": 16,
+  "location": "The Iron Yard",
+  "deadline": null
+  "organizer": "KingCons"
+}
+```
+
+### Viewing Tournaments and Results
