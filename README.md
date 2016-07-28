@@ -10,6 +10,19 @@
 
 > [https://hackathon-team-brit.herokuapp.com](https://hackathon-team-brit.herokuapp.com)
 
+## Table of Contents
+
+- [General Usage](#general-usage) (THIS IS IMPORTANT)
+  * [Authorization](#authorization)
+  * [Errors](#errors)
+  * [Parameters](#parameters)
+- [Routes](#routes)
+  * [User Accounts](#user-accounts)
+  * [Creating Players](#creating-players)
+  * [Running Tournaments](#running-tournaments)
+
+## General Usage
+
 ### Authorization
 
 All requests that need authorization are noted in the README by
@@ -33,7 +46,7 @@ property providing any additional data to solve the problem.
 **All** parameters are expected to be sent in JSON format.
 All parameters are **required** unless explicitly marked as `(optional)`.
 
-### Routes
+## Routes
 
 ### User Accounts
 

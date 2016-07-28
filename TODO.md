@@ -1,6 +1,5 @@
 ## Things we need to do...
-### Routes, Controllers, Views for...
-* Create tournaments
+### Routes, Controllers, Views
 * Add players to a tournaments
 * Seed the initial matches
 * Update matches
