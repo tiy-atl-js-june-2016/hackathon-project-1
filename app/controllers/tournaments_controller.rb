@@ -16,6 +16,8 @@ class TournamentsController < ApplicationController
   end
 
   def show
+    @tournament = Tournament.find(params[:id])
+    render "show.json.jbuilder", status: :ok
   end
 
   def index

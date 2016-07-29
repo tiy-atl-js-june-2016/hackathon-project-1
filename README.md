@@ -247,3 +247,32 @@ Returns 201 Created on success, 422 Unprocessable Entity on failure.
 ```
 
 ### Viewing Tournaments and Results
+
+#### GET /tournaments/:id
+
+> View a specific tournament and its players.
+
+**Params:**
+None
+
+**Response Code:**
+Returns 200 OK on success.
+
+**Response:**
+
+```
+{
+  "id": 42,
+  "title": "Table Tennis Terror",
+  "size": 16,
+  "location": "The Iron Yard",
+  "deadline": null,
+  "starting_at": null,
+  "organizer": "KingCons"
+  "players": [
+    {id, fullname, nickname, etc etc},
+    { },
+    ...
+  ]
+}
+```
