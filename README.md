@@ -192,9 +192,9 @@ Returns 200 OK on success.
 }
 ```
 
-#### GET /players/:id
+#### GET /players/:nickname
 
-> Retrieve a player by ID.
+> Retrieve a player by nickname. Remember that nicknames are unique.
 
 **Params:**
 None

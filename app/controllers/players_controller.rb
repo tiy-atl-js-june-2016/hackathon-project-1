@@ -11,7 +11,7 @@ class PlayersController < ApplicationController
   end
 
   def show
-    @player = Player.find(params[:id])
+    @player = Player.find_by!(params[:nickname])
     render "show.json.jbuilder", status: :ok
   end
 
