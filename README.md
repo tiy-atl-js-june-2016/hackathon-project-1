@@ -308,6 +308,37 @@ Returns 201 Created on success, 422 Unprocessable Entity if the tournament has a
 }
 ```
 
+#### PUT /tournaments/:tournament_id/matches/:id
+
+> Update match scores, winners, and liveness.
+
+**Params:**
+
+* p1_score: integer
+* p2_score: integer
+* winner_id: integer
+* live: boolean
+
+**Status Codes:**
+Returns 200 OK on success, failure is impossible.
+
+**Response:**
+
+```
+{
+  "id": 7,
+  "p1_score": 0,
+  "p2_score": 0,
+  "live": false,
+  "page_id": 2,
+  "winner_id": null,
+  "updated_at": "2016-10-04 ....",
+  "player1": { ... },
+  "player2": { ... },
+  "tournament_id": 34
+}
+```
+
 ### Viewing Tournaments and Results
 
 #### GET /tournaments

@@ -1,7 +1,5 @@
 ## Things we need to do...
 ### Routes, Controllers, Views
-* Seed the initial matches
-* Update matches
 * Generate leaderboards from matches
 
 ## Unresolved questions...
