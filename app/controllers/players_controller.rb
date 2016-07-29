@@ -16,7 +16,7 @@ class PlayersController < ApplicationController
   end
 
   def index
-    @players = Player.page(params[:page]).per(params[:per_page]).order(username: :asc)
+    @players = Player.page(params[:page]).per(params[:per_page]).order(nickname: :asc)
     render "index.json.jbuilder", status: :ok
   end
 
