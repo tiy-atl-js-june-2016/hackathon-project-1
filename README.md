@@ -20,6 +20,7 @@
   * [User Accounts](#user-accounts)
   * [Creating Players](#creating-players)
   * [Running Tournaments](#running-tournaments)
+  * [Viewing Tournaments and Results](#viewing-tournaments-and-results)
 
 ## General Usage
 
@@ -247,6 +248,35 @@ Returns 201 Created on success, 422 Unprocessable Entity on failure.
 ```
 
 ### Viewing Tournaments and Results
+
+#### GET /tournaments
+
+> Get a list of tournaments in reverse chronological order.
+
+**Params:**
+None
+
+**Response Code:**
+Returns 200 OK on success.
+
+**Response:**
+
+```
+[
+  {
+  "id": 42,
+  "title": "Table Tennis Terror",
+  "size": 16,
+  "location": "The Iron Yard",
+  "deadline": null,
+  "starting_at": null,
+  "created_at": "July 28, 2016 ...",
+  "organizer": "KingCons"
+  },
+  { ... },
+  { ... }
+]
+```
 
 #### GET /tournaments/:id
 

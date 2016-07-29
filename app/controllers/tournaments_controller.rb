@@ -21,6 +21,8 @@ class TournamentsController < ApplicationController
   end
 
   def index
+    @tournaments = Tournament.page(params[:page]).per(params[:per_page]).order(created_at: :desc)
+    render "index.json.jbuilder", status: :ok
   end
 
   private
