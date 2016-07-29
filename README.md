@@ -157,7 +157,6 @@ Returns 201 Created on success, 422 Unprocessable Entity in case of failure.
   "nickname": "The Champ",
   "location": "Atlanta, GA",
   "created_at": "July 28, 2016 ...",
-  "updated_at": "July 28, 2016 ..."
 }
 ```
 
