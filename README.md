@@ -254,7 +254,9 @@ Returns 201 Created on success, 422 Unprocessable Entity on failure.
 > Get a list of tournaments in reverse chronological order.
 
 **Params:**
-None
+
+* page: number (optional, defaults to 1)
+* per_page: number (optional, defaults to 25)
 
 **Response Code:**
 Returns 200 OK on success.

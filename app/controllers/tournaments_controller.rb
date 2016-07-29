@@ -1,7 +1,5 @@
 class TournamentsController < ApplicationController
   before_action :authenticate!, only: [:create, :seed]
-  ## Certain actions performed by TO: add-player, seed, match update
-  ## Certain actions by unauthed users: show, index, standings
 
   def create
     @tournament = current_user.tournaments.new(tourney_params)
