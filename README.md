@@ -189,8 +189,7 @@ Returns 200 OK on success.
     { ... },
     { ... }
   ],
-  "prev_page_url": "...",
-  "next_page_url": "..."
+  "page_info": "Displaying players 6 - 10 of 26 in total"
 }
 ```
 
@@ -312,8 +311,7 @@ Returns 200 OK on success.
     { ... },
     { ... }
   ],
-  "prev_page_url": "...",
-  "next_page_url": "..."
+  "page_info": "Displaying tournaments 6 - 10 of 26 in total"
 }
 ```
 
