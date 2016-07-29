@@ -203,7 +203,7 @@ None
 Returns 200 OK on success, 404 Not Found on failure.
 
 **Response:**
-Same as above.
+Same as for creating a player.
 
 ### Running Tournaments
 
@@ -274,7 +274,6 @@ Returns 201 Created on success, 422 Unprocessable Entity on failure.
   "nickname": "The Champ",
   "location": "Atlanta, GA",
   "created_at": "July 28, 2016 ...",
-  "updated_at": "July 28, 2016 ..."
 }
 ```
 
