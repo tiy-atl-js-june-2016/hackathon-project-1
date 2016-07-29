@@ -1,5 +1,5 @@
 class Tournament < ApplicationRecord
-  belongs_to :organizer, class_name: :user
+  belongs_to :organizer, class_name: :user, foreign_key: :user_id
   has_many :competitors
   has_many :players, through: :competitors
   has_many :matches
