@@ -20,16 +20,21 @@ class TournamentsController < ApplicationController
     ## Continue until you have tournament.size - 1
     ## matches, numbered 1 through t.size - 1.
 
-    @players = @tournament.players.shuffle
-    page_id = 1
-    until page_id == @tournament.size
-      versus = @players.shift(2)
-      @tournament.matches.create(player1: versus[0],
-                                 player2: versus[1],
-                                 page_id: page_id)
-      page_id += 1
+    if @tournament.matches.length.zero?
+      @players = @tournament.players.shuffle
+      page_id = 1
+      until page_id == @tournament.size
+        versus = @players.shift(2)
+        @tournament.matches.create(player1: versus[0],
+                                   player2: versus[1],
+                                   page_id: page_id)
+        page_id += 1
+      end
+      render "seed.json.jbuilder", status: :created
+    else
+      render json: { errors: "This tournament has already been seeded." },
+             status: :unprocessable_entity
     end
-    render "seed.json.jbuilder", status: :created
   end
 
   def show

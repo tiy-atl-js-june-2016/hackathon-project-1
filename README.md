@@ -277,6 +277,37 @@ Returns 201 Created on success, 422 Unprocessable Entity on failure.
 }
 ```
 
+#### POST /tournaments/:id/seed
+
+> Seed the starting round with random player matchups.
+
+**Params:**
+None
+
+**Status Codes:**
+Returns 201 Created on success, 422 Unprocessable Entity if the tournament has already been seeded.
+
+**Response:**
+
+```
+{
+  matches: [
+    {
+      "id": 7,
+      "p1_score": 0,
+      "p2_score": 0,
+      "live": false,
+      "page_id": 2,
+      "winner_id": null,
+      "player1": { ... },
+      "player2": { ... }
+    },
+    { ... },
+    { ... }
+  ]
+}
+```
+
 ### Viewing Tournaments and Results
 
 #### GET /tournaments
