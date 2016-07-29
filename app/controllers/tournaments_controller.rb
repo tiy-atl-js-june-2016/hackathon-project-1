@@ -1,5 +1,6 @@
 class TournamentsController < ApplicationController
-  before_action :authenticate!, only: [:create, :seed]
+  before_action :authenticate!, only: [:create]
+  before_action :organize!, only: [:seed]
 
   def create
     @tournament = current_user.tournaments.new(tourney_params)
@@ -11,6 +12,24 @@ class TournamentsController < ApplicationController
   end
 
   def seed
+    ## All single elim tournaments have
+    ## log2(t.size) rounds and t.size - 1 matches.
+
+    ## Shuffle all players, then pop players in pairs
+    ## creating matches for each pair.
+    ## Continue until you have tournament.size - 1
+    ## matches, numbered 1 through t.size - 1.
+
+    @players = @tournament.players.shuffle
+    page_id = 1
+    until page_id == @tournament.size
+      versus = @players.shift(2)
+      @tournament.matches.create(player1: versus[0],
+                                 player2: versus[1],
+                                 page_id: page_id)
+      page_id += 1
+    end
+    render "seed.json.jbuilder", status: :created
   end
 
   def show

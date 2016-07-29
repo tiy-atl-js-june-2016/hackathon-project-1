@@ -10,14 +10,4 @@ class CompetitorsController < ApplicationController
       render json: { errors: @competitor.errors.full_messages }, status: :unprocessable_entity
     end
   end
-
-  private
-  def organize!
-    authenticate!
-    @tournament = Tournament.find(params[:tournament_id])
-    unless @tournament.organizer == current_user
-      render json: { errors: "You aren't the organizer for this tournament." },
-             status: :forbidden
-    end
-  end
 end

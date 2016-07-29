@@ -2,6 +2,7 @@ class Tournament < ApplicationRecord
   belongs_to :organizer, class_name: :user
   has_many :competitors
   has_many :players, through: :competitors
+  has_many :matches
 
   validates :title, presence: true,
             uniqueness: { scope: :user_id }

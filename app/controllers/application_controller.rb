@@ -15,6 +15,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def organize!
+    authenticate!
+    @tournament = Tournament.find(params[:tournament_id])
+    unless @tournament.organizer == current_user
+      render json: { errors: "You aren't the organizer for this tournament." },
+             status: :forbidden
+    end
+  end
+
   rescue_from ActiveRecord::RecordNotFound do |e|
     render json: { errors: e.message }, status: :not_found
   end

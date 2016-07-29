@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :players, only: [:create, :show, :index]
 
   resources :tournaments, only: [:create, :index, :show] do
-    post "/add-player", to: "competitors#create"
     post "/seed", to: "tournaments#seed"
     get  "/standings", to: "tournaments#standings"
+    post "/add-player", to: "competitors#create"
     resources :matches, only: [:update]
   end
 
