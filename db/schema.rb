@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728195414) do
+ActiveRecord::Schema.define(version: 20160729151152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20160728195414) do
     t.integer  "player2_id"
     t.integer  "tournament_id"
     t.integer  "winner_id"
-    t.integer  "p1_score"
-    t.integer  "p2_score"
+    t.integer  "p1_score",      default: 0
+    t.integer  "p2_score",      default: 0
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.boolean  "live",          default: false
