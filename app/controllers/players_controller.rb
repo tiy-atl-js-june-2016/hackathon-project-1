@@ -15,6 +15,11 @@ class PlayersController < ApplicationController
     render "show.json.jbuilder", status: :ok
   end
 
+  def index
+    @players = Player.page(params[:page]).per(params[:per_page]).order(username: :asc)
+    render "index.json.jbuilder", status: :ok
+  end
+
   private
   def player_params
     params.permit(:fullname, :nickname, :location)

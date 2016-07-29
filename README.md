@@ -18,7 +18,7 @@
   * [Parameters](#parameters)
 - [Routes](#routes)
   * [User Accounts](#user-accounts)
-  * [Creating Players](#creating-players)
+  * [Players](#players)
   * [Running Tournaments](#running-tournaments)
   * [Viewing Tournaments and Results](#viewing-tournaments-and-results)
 
@@ -123,7 +123,7 @@ Returns 200 on success and 401 on failure.
 }
 ```
 
-### Creating Players
+### Players
 
 #### (!) POST /players
 
@@ -158,6 +158,39 @@ Returns 201 Created on success, 422 Unprocessable Entity in case of failure.
   "location": "Atlanta, GA",
   "created_at": "July 28, 2016 ...",
   "updated_at": "July 28, 2016 ..."
+}
+```
+
+#### GET /players
+
+> Retrieve a list of players ordered by username.
+
+**Params:**
+
+* page: number (optional, defaults to 1)
+* per_page: number (optional, defaults to 25)
+
+**Response Code:**
+Returns 200 OK on success.
+
+**Response:**
+
+```
+{
+  "players": [
+    {
+      "id": 13,
+      "fullname": "Terry Robinson",
+      "nickname": "The Champ",
+      "location": "Atlanta, GA",
+      "created_at": "July 28, 2016 ...",
+      "updated_at": "July 28, 2016 ..."
+    },
+    { ... },
+    { ... }
+  ],
+  "prev_page_url": "...",
+  "next_page_url": "..."
 }
 ```
 
@@ -264,20 +297,24 @@ Returns 200 OK on success.
 **Response:**
 
 ```
-[
-  {
-  "id": 42,
-  "title": "Table Tennis Terror",
-  "size": 16,
-  "location": "The Iron Yard",
-  "deadline": null,
-  "starting_at": null,
-  "created_at": "July 28, 2016 ...",
-  "organizer": "KingCons"
-  },
-  { ... },
-  { ... }
-]
+{
+  "tournaments": [
+    {
+      "id": 42,
+      "title": "Table Tennis Terror",
+      "size": 16,
+      "location": "The Iron Yard",
+      "deadline": null,
+      "starting_at": null,
+      "created_at": "July 28, 2016 ...",
+      "organizer": "KingCons"
+    },
+    { ... },
+    { ... }
+  ],
+  "prev_page_url": "...",
+  "next_page_url": "..."
+}
 ```
 
 #### GET /tournaments/:id
